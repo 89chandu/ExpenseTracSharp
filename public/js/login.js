@@ -27,7 +27,7 @@ async function formSubmit(e){
           password:e.target.password.value
       }
       
-      const response=await axios.post(`http://localhost:3100/user/login`,details);  
+      const response=await axios.post(`http://localhost:3000/user/login`,details);  
           console.log(response.data.message);   
       
   }

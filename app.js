@@ -20,5 +20,5 @@ app.use(errorController.get404); // This should now work correctly
 sequelize
     .sync()
     // .sync({force:true})
-    .then(() => app.listen(3100))
+    .then(() => app.listen(3000))
     .catch(err => console.log(err));
