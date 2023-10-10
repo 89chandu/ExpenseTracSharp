@@ -1,12 +1,8 @@
-const Sequelize = require('sequelize');
-require('dotenv').config(); // Load environment variables from .env
+const Sequelize=require('sequelize');
 
-const sequelize = new Sequelize('track_expense', process.env.DB_USERNAME, process.env.DB_PASSWORD, {
-  dialect: 'mysql',
-  host: 'localhost'
+const sequelize=new Sequelize('track-expense','root','Karthik@26',{
+    dialect:'mysql',
+    host:'localhost' 
 });
 
-module.exports = sequelize;
-
-
-
+module.exports=sequelize;
