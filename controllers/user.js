@@ -66,7 +66,7 @@ try{
       })
   }
   else{
-      return res.status(404).json({success:false,message:'User found'});
+      return res.status(404).json({success:false,message:'User not found'});
   } 
 }
 catch(err){
