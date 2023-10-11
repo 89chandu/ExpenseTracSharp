@@ -12,7 +12,7 @@ exports.postAddUser=async(req,res,next)=>{
         allData.forEach(element => {
            if(element.email===email) 
            {
-                throw new Error('User already exists');
+                throw new Error('User already exist');
            }
         });
         const data=await userModel.create({name:name,email:email,password:password});
