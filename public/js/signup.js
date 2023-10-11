@@ -1,5 +1,6 @@
 const form = document.getElementById('Data-form');
 const pwShowHide = document.querySelectorAll(".eye-icon");
+const errorMessageElement = document.getElementById('error-message'); // Error message element
 
 form.addEventListener('submit', formSubmit);
 
@@ -16,29 +17,29 @@ pwShowHide.forEach(eyeIcon => {
                 eyeIcon.classList.replace("bx-show", "bx-hide");
             }
         });
+
     });
 });
 
 async function formSubmit(e) {
-    e.preventDefault();
-    const details = {
-        name: e.target.name.value,
-        email: e.target.email.value,
-        password: e.target.password.value
-    };
-
     try {
+        e.preventDefault();
+        const details = {
+            name: e.target.name.value,
+            email: e.target.email.value,
+            password: e.target.password.value
+        };
+
         const response = await axios.post(`http://localhost:3100/user/signup`, details);
 
         if (response.status === 201) {
-            console.log("Success: User added");
-            // Redirect to the login page after successful signup
-            window.location.href = "./login.html";
+            console.log("User registered successfully");
+            // Redirect to a success page or perform other actions
         } else {
-            throw new Error('Something went wrong');
+            throw new Error('Failed to register');
         }
     } catch (err) {
         console.error(err);
-        // Handle the error, display a message, or perform other actions
+        errorMessageElement.textContent = 'An error occurred during registration.'; // Display error message
     }
 }
