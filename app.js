@@ -49,4 +49,8 @@ sequelize
       .sync()
     // .sync({force:true})  
     .then(()=>app.listen(3100))
-    .catch(err=>console.log(err)); 
+    .catch(err=>console.log(err));  
+
+
+
+    
