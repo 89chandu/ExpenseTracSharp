@@ -249,7 +249,7 @@ async function getExpenses(page,size)
 
         const addNewelem=document.createElement('li');
         addNewelem.className="list-group-item text-center fs-3 bg-warning rounded";
-        const text=document.createTextNode('Expense List');
+        const text=document.createTextNode('Expense Lists');
         addNewelem.appendChild(text);
         displayList.appendChild(addNewelem);
         for(var i=0;i<response.data.expenseData.length;i++)

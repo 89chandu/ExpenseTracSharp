@@ -44,7 +44,7 @@ exports.postAddExpense=async(req, res, next)=>{
         const category=req.body.category;
         if(isstringinvalid(amount)||isstringinvalid(desc)||isstringinvalid(category))
         {
-            return res.status(400).json({err:'Bad parameters.something is missing'});
+            return res.status(400).json({err:'Bad parameters something is missing'});
         }
         const data= await expenseModel.create({amount:amount,description:desc,category:category,userId:req.user.id},{transaction:t});
         await userModel.update({totalexpense:req.user.totalexpense + +amount},{where:{id:req.user.id},transaction:t});
@@ -72,7 +72,7 @@ exports.postDeleteExpense=async(req,res,next)=>{
             res.sendStatus(200);  
        } 
        else{
-            throw new Error('Access not available');
+            throw new Error('Error Access not available');
        } 
          
     }
